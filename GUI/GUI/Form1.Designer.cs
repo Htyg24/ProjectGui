@@ -40,9 +40,9 @@
             this.listBox.ItemHeight = 15;
             this.listBox.Location = new System.Drawing.Point(12, 82);
             this.listBox.Name = "listBox";
-            this.listBox.Size = new System.Drawing.Size(610, 469);
+            this.listBox.Size = new System.Drawing.Size(482, 469);
             this.listBox.TabIndex = 0;
-            this.listBox.SelectedIndexChanged += new System.EventHandler(this.listBox_SelectedIndexChanged);
+            this.listBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox_MouseDoubleClick);
             // 
             // textBox1
             // 
@@ -50,6 +50,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(1048, 23);
             this.textBox1.TabIndex = 1;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // button1
             // 
@@ -81,7 +82,8 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.listBox);
             this.Name = "Form1";
-            this.Text = "Sworm\'s Ass";
+            this.Text = "MoonLightShadow";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -93,5 +95,6 @@
         private TextBox textBox1;
         private Button button1;
         private Button button2;
+        
     }
 }

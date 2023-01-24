@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ namespace GUI
     {
         public static void Print(TextBox textBox1, ListBox listBox)
         {
-            listBox.Items.Clear();
+                listBox.Items.Clear();
             try
             {
                 DirectoryInfo dir = new DirectoryInfo(textBox1.Text);
@@ -27,12 +28,11 @@ namespace GUI
                 {
                     listBox.Items.Add(crrFile.Name);
                 }
-            } 
-            catch 
+            }
+            catch
             {
                 Console.WriteLine("Is not directory!");
             };
-
         }
     }
 }

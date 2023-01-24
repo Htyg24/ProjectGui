@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 namespace GUI
 {
@@ -11,18 +12,23 @@ namespace GUI
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            DirectoryInfo dir = new DirectoryInfo(textBox1.Text);
-            DirectoryInfo[] dirs = dir.GetDirectories();
+            try
+            {
+                DirectoryInfo dir = new DirectoryInfo(textBox1.Text);
+                DirectoryInfo[] dirs = dir.GetDirectories();
 
-            Output.Print(textBox1, listBox);
+                Output.Print(textBox1, listBox);
+            }
+            catch
+            {
+                Console.WriteLine("Is not directory!");
+            };
         }
+
 
         private void listBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listBox.SelectedItems != -1)
-                textBox1.Text = Path.Combine(textBox1.Text, listBox.SelectedItem.ToString());
 
-            Output.Print(textBox1, listBox);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -38,6 +44,29 @@ namespace GUI
             }
 
             Output.Print(textBox1, listBox);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (Path.GetExtension(listBox.SelectedItem.ToString()) == "")
+            {
+                if (listBox.SelectedIndex != -1)
+                    textBox1.Text = Path.Combine(textBox1.Text, listBox.SelectedItem.ToString());
+
+                Output.Print(textBox1, listBox);
+            }
+            else
+                Process.Start(Path.Combine(textBox1.Text, listBox.SelectedItem.ToString()));
         }
     }
 }
