@@ -3,70 +3,67 @@ using System.Diagnostics;
 using System.Windows.Forms;
 namespace GUI
 {
-    public partial class Form1 : Form
+    public partial class form1 : Form
     {
-        public Form1()
+
+        public form1()
         {
             InitializeComponent();
+            int range = 20;
+            filesListBoxFirst.Width = Size.Width / 2 - 40;
+            pathBoxFirst.Width = filesListBoxFirst.Width - range - goButtonFirst.Width;
+            goButtonFirst.Left = pathBoxFirst.Right + range;
+            backButtonFirst.Left = pathBoxFirst.Right + range;
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void backFirst(object sender, EventArgs e)
         {
-            try
-            {
-                DirectoryInfo dir = new DirectoryInfo(textBox1.Text);
-                DirectoryInfo[] dirs = dir.GetDirectories();
-
-                Output.Print(textBox1, listBox);
-            }
-            catch
-            {
-                Console.WriteLine("Is not directory!");
-            };
+            DirectoriesManager.Back(sender, e, filesListBoxFirst, pathBoxFirst);
         }
 
-
-        private void listBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void backSecond(object sender, EventArgs e)
         {
-
+            DirectoriesManager.Back(sender, e, filesListBoxSecond, pathBoxSecond);
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (textBox1.Text[textBox1.Text.Length - 1] == '\\')
-            {
-                textBox1.Text = textBox1.Text.Remove(textBox1.Text.Length - 1, 1);
-            }
-
-            while(textBox1.Text[textBox1.Text.Length - 1] != '\\')
-            {
-                textBox1.Text = textBox1.Text.Remove(textBox1.Text.Length - 1, 1);
-            }
-
-            Output.Print(textBox1, listBox);
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void listBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            if (Path.GetExtension(listBox.SelectedItem.ToString()) == "")
-            {
-                if (listBox.SelectedIndex != -1)
-                    textBox1.Text = Path.Combine(textBox1.Text, listBox.SelectedItem.ToString());
+            DirectoriesManager.DirectoriesMove(sender, e, filesListBoxFirst, pathBoxFirst);
+        }
 
-                Output.Print(textBox1, listBox);
-            }
-            else
-                Process.Start(Path.Combine(textBox1.Text, listBox.SelectedItem.ToString()));
+        private void GoClickFirst(object sender, EventArgs e)
+        {
+            DirectoriesManager.GoToWay(sender, e, pathBoxFirst, filesListBoxFirst);
+        }
+
+        private void GoClickSecond(object sender, EventArgs e)
+        {
+            DirectoriesManager.GoToWay(sender, e, pathBoxSecond, filesListBoxSecond);
+
+        }
+
+        private void listBox_MouseDoubleClickSecond(object sender, MouseEventArgs e)
+        {
+            DirectoriesManager.DirectoriesMove(sender, e, filesListBoxSecond, pathBoxSecond);
+        }
+
+        private void Form1_SizeChanged(object sender, EventArgs e)
+        {
+            int range = 20;
+            filesListBoxFirst.Width = Size.Width / 2 - range;
+            filesListBoxFirst.Height = Size.Height - filesListBoxFirst.Top - 2 * range;
+            pathBoxFirst.Width = filesListBoxFirst.Width - goButtonFirst.Width - range;
+            goButtonFirst.Left = pathBoxFirst.Right + range;
+            backButtonFirst.Left = pathBoxFirst.Right + range;
+
+            filesListBoxSecond.Left = filesListBoxFirst.Right + range;
+            filesListBoxSecond.Height = Size.Height - filesListBoxSecond.Top - 2 * range;
+            filesListBoxSecond.Width = filesListBoxFirst.Width - range;
+            pathBoxSecond.Left = filesListBoxFirst.Right + range;
+            pathBoxSecond.Width = pathBoxFirst.Width - range;
+            goButtonSecond.Left = filesListBoxFirst.Right + filesListBoxFirst.Width - goButtonSecond.Width;
+            backButtonSecond.Left = filesListBoxFirst.Right + filesListBoxFirst.Width - backButtonSecond.Width;
         }
     }
 }

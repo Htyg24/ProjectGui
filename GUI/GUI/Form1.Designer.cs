@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class Form1
+    partial class form1
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,62 +28,107 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox = new System.Windows.Forms.ListBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.filesListBoxFirst = new System.Windows.Forms.ListBox();
+            this.pathBoxFirst = new System.Windows.Forms.TextBox();
+            this.goButtonFirst = new System.Windows.Forms.Button();
+            this.backButtonFirst = new System.Windows.Forms.Button();
+            this.filesListBoxSecond = new System.Windows.Forms.ListBox();
+            this.pathBoxSecond = new System.Windows.Forms.TextBox();
+            this.goButtonSecond = new System.Windows.Forms.Button();
+            this.backButtonSecond = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // listBox
+            // filesListBoxFirst
             // 
-            this.listBox.FormattingEnabled = true;
-            this.listBox.ItemHeight = 15;
-            this.listBox.Location = new System.Drawing.Point(12, 82);
-            this.listBox.Name = "listBox";
-            this.listBox.Size = new System.Drawing.Size(482, 469);
-            this.listBox.TabIndex = 0;
-            this.listBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox_MouseDoubleClick);
+            this.filesListBoxFirst.FormattingEnabled = true;
+            this.filesListBoxFirst.ItemHeight = 15;
+            this.filesListBoxFirst.Location = new System.Drawing.Point(12, 66);
+            this.filesListBoxFirst.Name = "filesListBoxFirst";
+            this.filesListBoxFirst.Size = new System.Drawing.Size(482, 469);
+            this.filesListBoxFirst.TabIndex = 0;
+            this.filesListBoxFirst.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox_MouseDoubleClick);
             // 
-            // textBox1
+            // pathBoxFirst
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 8);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(1048, 23);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.pathBoxFirst.Location = new System.Drawing.Point(12, 8);
+            this.pathBoxFirst.Name = "pathBoxFirst";
+            this.pathBoxFirst.Size = new System.Drawing.Size(401, 23);
+            this.pathBoxFirst.TabIndex = 1;
             // 
-            // button1
+            // goButtonFirst
             // 
-            this.button1.Location = new System.Drawing.Point(1076, 8);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Перейти";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.goButtonFirst.Location = new System.Drawing.Point(419, 7);
+            this.goButtonFirst.Name = "goButtonFirst";
+            this.goButtonFirst.Size = new System.Drawing.Size(75, 23);
+            this.goButtonFirst.TabIndex = 2;
+            this.goButtonFirst.Text = "Перейти";
+            this.goButtonFirst.UseVisualStyleBackColor = true;
+            this.goButtonFirst.Click += new System.EventHandler(this.GoClickFirst);
             // 
-            // button2
+            // backButtonFirst
             // 
-            this.button2.Location = new System.Drawing.Point(1076, 52);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Назад";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.backButtonFirst.Location = new System.Drawing.Point(419, 37);
+            this.backButtonFirst.Name = "backButtonFirst";
+            this.backButtonFirst.Size = new System.Drawing.Size(75, 23);
+            this.backButtonFirst.TabIndex = 3;
+            this.backButtonFirst.Text = "Назад";
+            this.backButtonFirst.UseVisualStyleBackColor = true;
+            this.backButtonFirst.Click += new System.EventHandler(this.backFirst);
             // 
-            // Form1
+            // filesListBoxSecond
+            // 
+            this.filesListBoxSecond.FormattingEnabled = true;
+            this.filesListBoxSecond.ItemHeight = 15;
+            this.filesListBoxSecond.Location = new System.Drawing.Point(500, 66);
+            this.filesListBoxSecond.Name = "filesListBoxSecond";
+            this.filesListBoxSecond.Size = new System.Drawing.Size(482, 469);
+            this.filesListBoxSecond.TabIndex = 0;
+            this.filesListBoxSecond.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox_MouseDoubleClickSecond);
+            // 
+            // pathBoxSecond
+            // 
+            this.pathBoxSecond.Location = new System.Drawing.Point(500, 8);
+            this.pathBoxSecond.Name = "pathBoxSecond";
+            this.pathBoxSecond.Size = new System.Drawing.Size(401, 23);
+            this.pathBoxSecond.TabIndex = 1;
+            // 
+            // goButtonSecond
+            // 
+            this.goButtonSecond.Location = new System.Drawing.Point(907, 7);
+            this.goButtonSecond.Name = "goButtonSecond";
+            this.goButtonSecond.Size = new System.Drawing.Size(75, 23);
+            this.goButtonSecond.TabIndex = 2;
+            this.goButtonSecond.Text = "Перейти";
+            this.goButtonSecond.UseVisualStyleBackColor = true;
+            this.goButtonSecond.Click += new System.EventHandler(this.GoClickSecond);
+            // 
+            // backButtonSecond
+            // 
+            this.backButtonSecond.Location = new System.Drawing.Point(907, 37);
+            this.backButtonSecond.Name = "backButtonSecond";
+            this.backButtonSecond.Size = new System.Drawing.Size(75, 23);
+            this.backButtonSecond.TabIndex = 3;
+            this.backButtonSecond.Text = "Назад";
+            this.backButtonSecond.UseVisualStyleBackColor = true;
+            this.backButtonSecond.Click += new System.EventHandler(this.backSecond);
+            // 
+            // form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1163, 563);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.listBox);
-            this.Name = "Form1";
+            this.ClientSize = new System.Drawing.Size(999, 563);
+            this.Controls.Add(this.backButtonSecond);
+            this.Controls.Add(this.backButtonFirst);
+            this.Controls.Add(this.goButtonSecond);
+            this.Controls.Add(this.goButtonFirst);
+            this.Controls.Add(this.pathBoxSecond);
+            this.Controls.Add(this.pathBoxFirst);
+            this.Controls.Add(this.filesListBoxSecond);
+            this.Controls.Add(this.filesListBoxFirst);
+            this.MinimumSize = new System.Drawing.Size(500, 300);
+            this.Name = "form1";
             this.Text = "MoonLightShadow";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.SizeChanged += new System.EventHandler(this.Form1_SizeChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -91,10 +136,13 @@
 
         #endregion
 
-        private ListBox listBox;
-        private TextBox textBox1;
-        private Button button1;
-        private Button button2;
-        
+        private ListBox filesListBoxFirst;
+        private TextBox pathBoxFirst;
+        private Button goButtonFirst;
+        private Button backButtonFirst;
+        private ListBox filesListBoxSecond;
+        private TextBox pathBoxSecond;
+        private Button goButtonSecond;
+        private Button backButtonSecond;
     }
 }
